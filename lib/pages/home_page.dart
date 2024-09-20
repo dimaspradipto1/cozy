@@ -1,6 +1,10 @@
 import 'package:cozy/models/city.dart';
+import 'package:cozy/models/space.dart';
+import 'package:cozy/models/tips.dart';
 import 'package:cozy/theme.dart';
 import 'package:cozy/widgets/city_card.dart';
+import 'package:cozy/widgets/space_card.dart';
+import 'package:cozy/widgets/tips_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,12 +14,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Padding(
           padding: EdgeInsets.symmetric(
             vertical: edge,
           ),
           child: ListView(
             children: [
+              //todo : title/header
               Padding(
                 padding: EdgeInsets.only(
                   left: edge,
@@ -44,6 +50,7 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
+              // todo : POPULAR CITIES
               Padding(
                 padding: EdgeInsets.only(
                   left: edge,
@@ -131,6 +138,111 @@ class HomePage extends StatelessWidget {
                     ),
                     SizedBox(
                       width: 24,
+                    ),
+                  ],
+                ),
+              ),
+              // todo: RECOMENDED SPACE
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: edge),
+                child: Text(
+                  'Recommended Space',
+                  style: regularTextStyle.copyWith(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: edge,
+                ),
+                child: Column(
+                  children: [
+                    SpaceCard(
+                      space: Space(
+                          id: 1,
+                          name: 'Kuretakeso Hott',
+                          imageurl: 'assets/space1.png',
+                          price: 52,
+                          city: 'Bandung',
+                          country: 'Germany',
+                          rating: 4),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    SpaceCard(
+                      space: Space(
+                        id: 2,
+                        name: 'Roemah Nenek',
+                        imageurl: 'assets/space2.png',
+                        price: 11,
+                        city: 'Seattle',
+                        country: 'Bogor',
+                        rating: 5,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    SpaceCard(
+                      space: Space(
+                        id: 3,
+                        name: 'Darrling How',
+                        imageurl: 'assets/space3.png',
+                        price: 20,
+                        city: 'Jakarta',
+                        country: 'Indonesia',
+                        rating: 3,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // todo: TIPS & GUIDANCE
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: edge),
+                child: Text(
+                  'Tips & Guidance',
+                  style: regularTextStyle.copyWith(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: edge),
+                child: Column(
+                  children: [
+                    TipsCard(
+                      tips: Tips(
+                        id: 1,
+                        title: 'City Guidelines',
+                        imageUrl: 'assets/tips1.png',
+                        updateAt: '  20 Apr',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TipsCard(
+                      tips: Tips(
+                        id: 2,
+                        title: 'Jakarta Fairship',
+                        imageUrl: 'assets/tips2.png',
+                        updateAt: ' 11 Dec',
+                      ),
                     ),
                   ],
                 ),
